@@ -1,0 +1,138 @@
+LIBRARY "KexDll.dll"
+EXPORTS
+	KexDataInitialize
+	KexInitializePropagation
+	KexDllProtectedFunctionExceptionFilter
+
+	KexRtlPathFindFileName
+	KexRtlPathRemoveExtension
+	KexRtlPathReplaceIllegalCharacters
+	KexRtlGetProcessImageBaseName
+	KexRtlQueryKeyValueData
+	KexRtlQueryKeyMultipleValueData
+	KexRtlUnicodeStringEndsWith
+	KexRtlFindUnicodeSubstring
+	KexRtlAdvanceUnicodeString
+	KexRtlRetreatUnicodeString
+	KexRtlSetUnicodeStringBufferEnd
+	KexRtlShiftUnicodeString
+	KexRtlWriteProcessMemory
+	KexRtlCreateDirectoryRecursive
+	KexRtlNtStatusToString
+	KexRtlSectionTableFromRva
+	KexRtlNullTerminateUnicodeString
+	KexRtlUnicodeStringContainsEmbeddedNull
+	KexRtlCreateUntrustedDirectoryObject
+	KexRtlGenerateRandomData
+
+	; String Mapper APIs - we will continue exporting them by their old names in
+	; addition to their new names just in case anyone is using them
+	KexRtlCreateStringMapper				= SmpCreateStringMapper
+	KexRtlDeleteStringMapper				= SmpDeleteStringMapper
+	KexRtlInsertEntryStringMapper			= SmpInsertEntryStringMapper
+	KexRtlLookupEntryStringMapper			= SmpLookupEntryStringMapper
+	KexRtlRemoveEntryStringMapper			= SmpRemoveEntryStringMapper
+	KexRtlApplyStringMapper					= SmpApplyStringMapper
+	KexRtlInsertMultipleEntriesStringMapper	= SmpInsertMultipleEntriesStringMapper
+	KexRtlLookupMultipleEntriesStringMapper	= SmpLookupMultipleEntriesStringMapper
+	KexRtlBatchApplyStringMapper			= SmpBatchApplyStringMapper
+
+	SmpCreateStringMapper
+	SmpDeleteStringMapper
+	SmpInsertEntryStringMapper
+	SmpLookupEntryStringMapper
+	SmpRemoveEntryStringMapper
+	SmpApplyStringMapper
+	SmpInsertMultipleEntriesStringMapper
+	SmpLookupMultipleEntriesStringMapper
+	SmpBatchApplyStringMapper
+
+	KexRtlWow64GetProcessMachines
+	KexRtlSetBit
+	KexRtlClearBit
+	KexRtlQueryPackageIdentity
+	KexRtlQueryPackageIdentityEx
+	KexRtlCheckPortableOperatingSystem
+	KexRtlUnsubscribeWnfStateChangeNotification
+	KexRtlQueryWnfStateData
+	KexRtlPublishWnfStateData
+	KexRtlSubscribeWnfStateChangeNotification
+	KexRtlAddGrowableFunctionTable
+
+	KexRtlWaitOnAddress
+	KexRtlWakeAddressSingle
+	KexRtlWakeAddressAll
+
+	KexEtwEventSetInformation
+
+	KexLdrGetSystemDllBase
+	KexLdrGetRemoteSystemDllBase
+	KexLdrGetNativeSystemDllBase
+	KexLdrMiniGetProcedureAddress
+	KexLdrFindDllInitRoutine = KexLdrFindImageEntryPoint
+	KexLdrFindImageEntryPoint
+	KexLdrGetDllFullName
+	KexLdrGetDllFullNameFromAddress
+	KexLdrGetImageImportSection
+
+	KexLdrLoadDll
+	KexLdrGetDllHandle
+	KexLdrGetDllHandleEx
+	KexLdrGetProcedureAddress
+	KexLdrGetProcedureAddressEx
+
+	KexLdrResolveDelayLoadedAPI
+
+	ApiSetQueryApiSetPresence
+
+	KexHkInstallBasicHook
+	KexHkRemoveBasicHook
+
+	KexMessageBox
+	KexMessageBoxF
+	KexRewriteDllPath
+	KexPatchCpiwSubsystemVersionCheck
+
+	AshExeBaseNameIs
+	AshModuleBaseNameIs
+	AshModuleIsWindowsModule
+
+	VxlOpenLog
+	VxlCloseLog
+	VxlQueryInformationLog
+	VxlWriteLogEx
+	VxlReadLog
+	VxlReadMultipleEntriesLog
+	VxlSeverityToText
+
+	NtCompareObjects
+
+	Ext_NtQueryInformationThread
+	Ext_NtSetInformationThread
+	Ext_NtQueryInformationProcess
+	Ext_NtNotifyChangeKey
+	Ext_NtNotifyChangeMultipleKeys
+	Ext_NtCreateSection
+	Ext_NtAssignProcessToJobObject
+
+	Ext_RtlInitializeCriticalSection
+	Ext_RtlInitializeCriticalSectionAndSpinCount
+	Ext_RtlInitializeCriticalSectionEx
+
+	KexNtQuerySystemTime
+	KexNtCreateUserProcess
+	KexNtProtectVirtualMemory
+	KexNtAllocateVirtualMemory
+	KexNtQueryVirtualMemory
+	KexNtFreeVirtualMemory
+	KexNtOpenKeyEx
+	KexNtQueryObject
+	KexNtOpenFile
+	KexNtWriteFile
+	KexNtRaiseHardError
+	KexNtQueryInformationThread
+	KexNtSetInformationThread
+	KexNtNotifyChangeKey
+	KexNtNotifyChangeMultipleKeys
+	KexNtCreateSection
+	KexNtAssignProcessToJobObject

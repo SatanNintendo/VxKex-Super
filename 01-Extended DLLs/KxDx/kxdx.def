@@ -1,0 +1,58 @@
+LIBRARY KxDx
+EXPORTS
+        ;; factory.c
+        ;; D2D1CreateFactory is often imported by ordinal, so it must be exported
+        ;; by ordinal.
+        CreateDXGIFactory1 = Ext_CreateDXGIFactory1
+        CreateDXGIFactory2
+        D2D1CreateFactory = Ext_D2D1CreateFactory               @1
+
+        ;; d3dkmt.c
+        ;; D3DKMT functions that are not available on Windows 7.
+        ;; D3DKMTOpenAdapterFromLuid and D3DKMTEnumAdapters2 are real
+        ;; implementations (not forwarders) that use DXGI adapter
+        ;; enumeration + D3DKMTOpenAdapterFromHdc.
+        D3DKMTOpenAdapterFromLuid
+        D3DKMTEnumAdapters2
+        ;; D3DKMT stub functions - return STATUS_NOT_SUPPORTED.
+        ;; These are needed because the NVIDIA Vulkan driver imports
+        ;; them from GDI32.dll and crashes when they are not resolved.
+        D3DKMTSetVidPnSourceOwner1
+        D3DKMTSetContextInProcessSchedulingPriority
+        D3DKMTChangeSurfacePointer
+        D3DKMTCheckExclusiveOwnerShip
+        D3DKMTCreateKeyedMutex2
+        D3DKMTOpenKeyedMutex2
+        D3DKMTAcquireKeyedMutex2
+        D3DKMTReleaseKeyedMutex2
+        D3DKMTQueryResourceInfoFromNtHandle
+        D3DKMTShareObjects
+        D3DKMTOpenNtHandleFromName
+        D3DKMTOpenResourceFromNtHandle
+        D3DKMTOpenSyncObjectFromNtHandle
+
+        ;; d3d11on12.c
+        D3D11On12CreateDevice
+        
+        ;; dx12stub.c
+        ;; These must be exported with ordinal. A lot of programs import by ordinal
+        ;; from d3d12 for some reason.
+        D3D12CreateDevice                                                               @101
+        D3D12CreateRootSignatureDeserializer                    @107
+        D3D12CreateVersionedRootSignatureDeserializer   @108
+        D3D12EnableExperimentalFeatures                                 @110
+        D3D12GetDebugInterface                                                  @102
+        D3D12GetInterface
+        D3D12SerializeRootSignature                                             @115
+        D3D12SerializeVersionedRootSignature                    @116
+
+        ;; dcmpstub.c
+        DCompositionCreateDevice
+        DCompositionCreateDevice2
+        DCompositionCreateDevice3
+
+        ;; mfplat.c
+        MFMapDXGIFormatToDX9Format
+        MFMapDX9FormatToDXGIFormat
+        ;MFCreateDXGIDeviceManager
+        MFCreateDXGISurfaceBuffer

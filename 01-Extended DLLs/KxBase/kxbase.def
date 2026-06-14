@@ -1,0 +1,195 @@
+LIBRARY KxBase
+EXPORTS
+        ;;
+        ;; VxKex New Functions
+        ;;
+
+        ResolveDelayLoadedAPI                           = KexDll.KexLdrResolveDelayLoadedAPI
+
+        ;; thread.c
+        GetThreadDescription
+        SetThreadDescription
+        GetCurrentThreadStackLimits
+        SetThreadInformation
+        GetThreadInformation
+        SetThreadSelectedCpuSets
+        SetThreadSelectedCpuSetMasks
+        GetThreadSelectedCpuSets
+        GetThreadSelectedCpuSetMasks
+        SetThreadpoolTimerEx
+        GetSystemCpuSetInformation
+
+        ;; process.c
+        GetProcessInformation
+        SetProcessInformation
+        SetProcessDefaultCpuSets
+        SetProcessDefaultCpuSetMasks
+        GetProcessDefaultCpuSets
+        GetProcessDefaultCpuSetMasks
+        SetProcessMitigationPolicy
+        GetProcessMitigationPolicy
+
+        ;; pssapi.c
+        PssCaptureSnapshot
+        PssFreeSnapshot
+        PssQuerySnapshot
+        PssWalkMarkerCreate
+
+        ;; cfgmgr.c
+        CM_Register_Notification
+        CM_Unregister_Notification
+
+        ;; module.c
+        LoadPackagedLibrary
+
+        ;; misc.c
+        GetOsSafeBootMode
+        GetFirmwareType
+
+        ;; geoname.c
+        GetUserDefaultGeoName
+
+        ;; handle.c
+        CompareObjectHandles
+
+        ;; file.c
+        CreateFile2
+        GetTempPath2A
+        GetTempPath2W
+        CopyFile2
+        GetOverlappedResultEx
+        GetFileInformationByName
+        DeviceIoControl                                         = Ext_DeviceIoControl
+        ReadFile                                                        = Ext_ReadFile
+        WriteFile                                                       = Ext_WriteFile
+
+        ;; time.c
+        GetSystemTimePreciseAsFileTime
+        QueryUnbiasedInterruptTimePrecise
+
+        ;; appmodel.c
+        AppPolicyGetProcessTerminationMethod
+        AppPolicyGetThreadInitializationType
+        AppPolicyGetWindowingModel
+        AppXGetPackageSid
+        AppXFreeMemory
+        GetApplicationUserModelId
+        GetCurrentApplicationUserModelId
+        GetCurrentPackageFullName
+        GetCurrentPackageId
+        GetPackageFamilyName
+        GetPackageFullName
+        GetPackagesByPackageFamily
+        PackageFamilyNameFromFullName
+        GetPackagePathByFullName
+        GetPackagePathByFullName2
+        GetCurrentPackageFamilyName
+
+        ;; appstate.c
+        RegisterAppStateChangeNotification
+        UnregisterAppStateChangeNotification
+
+        ;; synch.c
+        InitializeCriticalSectionEx
+        PrivIsDllSynchronizationHeld
+        WaitOnAddress
+        WakeByAddressSingle                                     = KexDll.KexRtlWakeAddressSingle
+        WakeByAddressAll                                        = KexDll.KexRtlWakeAddressAll
+
+        ;; wow64.c
+        IsWow64Process2
+
+        ;; vmem.c
+        DiscardVirtualMemory
+        OfferVirtualMemory
+        ReclaimVirtualMemory
+        PrefetchVirtualMemory
+        CreateFileMappingFromApp
+        MapViewOfFileFromApp
+        VirtualAllocFromApp
+        VirtualProtectFromApp
+        OpenFileMappingFromApp
+        MapViewOfFileNuma2
+        UnmapViewOfFile2
+        UnmapViewOfFileEx
+        MapViewOfFile3
+        MapViewOfFile3FromApp
+        VirtualAlloc2
+        VirtualAlloc2FromApp
+
+        ;; KexPathCch
+        PathAllocCanonicalize
+        PathAllocCombine
+        PathCchAddBackslash
+        PathCchAddBackslashEx
+        PathCchAddExtension
+        PathCchAppend
+        PathCchAppendEx
+        PathCchCanonicalize
+        PathCchCanonicalizeEx
+        PathCchCombine
+        PathCchCombineEx
+        PathCchFindExtension
+        PathCchIsRoot
+        PathCchRemoveBackslash
+        PathCchRemoveBackslashEx
+        PathCchRemoveExtension
+        PathCchRemoveFileSpec
+        PathCchRenameExtension
+        PathCchSkipRoot
+        PathCchStripPrefix
+        PathCchStripToRoot
+        PathIsUNCEx
+
+        ;;
+        ;; Forwarders to kernel32
+        ;;
+
+        TlsGetValue2                                            = kernel32.TlsGetValue
+
+        ;;
+        ;; Forwarders to KxNt
+        ;;
+
+        InitializeCriticalSection                       = KxNt.RtlInitializeCriticalSection
+
+        ;;
+        ;; Forwarders to KxAdvapi
+        ;;
+
+        RegCopyTreeW                                            = KxAdvapi.RegCopyTreeW
+
+        ;;
+        ;; VxKex Extended Functions
+        ;;
+
+        ;; process.c
+        IsProcessInJob                                          = Ext_IsProcessInJob
+        UpdateProcThreadAttribute                       = Ext_UpdateProcThreadAttribute
+
+        ;; module.c
+        GetModuleHandleA                                        = Ext_GetModuleHandleA
+        GetModuleHandleW                                        = Ext_GetModuleHandleW
+        GetModuleHandleExA                                      = Ext_GetModuleHandleExA
+        GetModuleHandleExW                                      = Ext_GetModuleHandleExW
+        LoadLibraryA                                            = Ext_LoadLibraryA
+        LoadLibraryW                                            = Ext_LoadLibraryW
+        LoadLibraryExA                                          = Ext_LoadLibraryExA
+        LoadLibraryExW                                          = Ext_LoadLibraryExW
+        AddDllDirectory                                         = Ext_AddDllDirectory
+        RemoveDllDirectory                                      = Ext_RemoveDllDirectory
+        SetDefaultDllDirectories                        = Ext_SetDefaultDllDirectories
+
+        ;; security.c
+        CreateWellKnownSid                                      = Ext_CreateWellKnownSid
+
+        ;; verspoof.c
+        GetVersionExA                                           = Ext_GetVersionExA
+
+        ;; stubs.c
+        DuplicateHandle                                         = Stub_DuplicateHandle
+        GetProcAddress                                          = Stub_GetProcAddress
+        VirtualAlloc                                            = Stub_VirtualAlloc
+
+        ;; heap.c
+        HeapCreate                                                      = Ext_HeapCreate

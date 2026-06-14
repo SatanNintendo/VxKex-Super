@@ -1,0 +1,102 @@
+LIBRARY KxUser
+EXPORTS
+	;;
+	;; autorot.c
+	;;
+
+	SetDisplayAutoRotationPreferences
+	GetDisplayAutoRotationPreferences
+	GetAutoRotationState
+
+	;;
+	;; blutooth.c
+	;;
+
+	BluetoothGATTAbortReliableWrite
+	BluetoothGATTBeginReliableWrite
+	BluetoothGATTEndReliableWrite
+	BluetoothGATTGetCharacteristics
+	BluetoothGATTGetCharacteristicValue
+	BluetoothGATTGetDescriptors
+	BluetoothGATTGetDescriptorValue
+	BluetoothGATTGetIncludedServices
+	BluetoothGATTGetServices
+	BluetoothGATTRegisterEvent
+	BluetoothGATTSetCharacteristicValue
+	BluetoothGATTSetDescriptorValue
+	BluetoothGATTUnregisterEvent
+
+	;;
+	;; misc.c
+	;;
+
+	CreateWindowInBand
+	GetWindowBand
+	GetProcessUIContextInformation @2521 NONAME
+	GetCurrentInputMessageSource
+	IsImmersiveProcess
+	IsWindowArranged
+
+	;;
+	;; pointer.c
+	;;
+
+	GetPointerDevices
+	GetPointerType
+	GetPointerInfo
+	GetPointerTouchInfo
+	GetPointerFrameTouchInfo
+	GetPointerFrameTouchInfoHistory
+	GetPointerPenInfo
+	GetPointerPenInfoHistory
+	SkipPointerFrameMessages
+	GetPointerDeviceRects
+	EnableMouseInPointer
+	RegisterPointerDeviceNotifications
+	GetWindowFeedbackSetting
+	SetWindowFeedbackSetting
+	IsMouseInPointerEnabled
+	EnableMouseInPointer
+
+	;;
+	;; pwrnotfy.c
+	;;
+
+	RegisterSuspendResumeNotification
+	UnregisterSuspendResumeNotification
+
+	;;
+	;; scaling.c
+	;;
+
+	GetDpiForSystem
+	GetDpiForWindow
+	GetDpiForMonitor
+	GetScaleFactorForMonitor
+	GetProcessDpiAwareness
+	GetProcessDpiAwarenessInternal
+	GetDpiAwarenessContextForProcess
+	SetProcessDpiAwareness
+	GetThreadDpiAwarenessContext
+	SetThreadDpiAwarenessContext
+	SetProcessDpiAwarenessContext
+	SetProcessDpiAwarenessInternal
+	AdjustWindowRectExForDpi
+	GetAwarenessFromDpiAwarenessContext
+	GetWindowDpiAwarenessContext
+	EnableNonClientDpiScaling
+	AreDpiAwarenessContextsEqual
+	IsValidDpiAwarenessContext
+
+	;;
+	;; sysmetrc.c
+	;;
+
+	GetSystemMetricsForDpi
+	SystemParametersInfoForDpi
+
+	;;
+	;; timer.c
+	;;
+
+	SetCoalescableTimer
